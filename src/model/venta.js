@@ -96,11 +96,24 @@ export class ventaModel{
 
     static async getVenta(){
         try{
-            const [data] = await connection.query('SELECT * from ventas where ventaID >= 0')
-            return data[0];
+            const [data] = await connection.query('SELECT * FROM Ventas WHERE ventaID >= 0')
+            if(data.length === 0){
+                return {
+                    data: [],
+                    message: 'No se encontraron ventas',
+                    estado: 2
+                }
+            }
+            return {
+                data: data,
+                message: 'Ventas obtenidas exitosamente',
+                estado: 1
+            };
         }catch(error){
-            return {message: 'Error al obtener los datos',
-                estados: false
+            return {
+                data: null,
+                message: 'Error al obtener los datos: ' + error.message,
+                estado: 3
             }
         }
     }

@@ -30,8 +30,7 @@ export class ventaControllador{
                 return res.status(400).json(message)
             }
             return res.status(200).json(message)
-        }catch(error)
-        {
+        }catch(error){
             return res.status(500).json({message:'Errore en el servidor' + error.message});
         }
         
@@ -52,7 +51,7 @@ export class ventaControllador{
                 return res.status(estado ===2? 400:500).json(message)
             }
             return res.status(200).json(data)
-        }catch(erro){
+        }catch(error){
             return res.status(500).json({message:'ERROR en el servidor ' +error.message})
         }
     }

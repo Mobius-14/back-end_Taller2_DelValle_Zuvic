@@ -5,9 +5,13 @@ import productoRouter from './routes/producto.js'
 import ventaRouter from './routes/venta.js'
 import clientesRouter from './routes/clientes.js'
 import detalle_ventaRouter from './routes/detalle_venta.js'
-const app = express()
 
 const PORT = 3001
+
+import cors from "cors";
+
+const app = express();
+app.use(cors());
 /*
 Middelware que nos permite utilizar el formato json en la api.
 */
